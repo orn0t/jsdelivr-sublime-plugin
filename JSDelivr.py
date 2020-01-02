@@ -37,6 +37,7 @@ def fetch_jsdelivr_complete(package):
     req = urllib.request.Request(
         'https://data.jsdelivr.com/v1/package/npm/{}'.format(package)
     )
+    req.add_header('User-Agent', 'jsDelivr sublime plugin (https://github.com/orn0t/jsdelivr-sublime-plugin)')
 
     with urllib.request.urlopen(req) as response:
         result = json.loads(response.read().decode('utf-8'))
